@@ -1,0 +1,17 @@
+{
+  "port":"8080",
+  "mongoose":{
+    "uri":"mongodb://localhost/lynx"
+  },
+  "session":{
+    "secret":"Athene",
+    "key":"sid",
+    "cookie":{
+      "maxAge":null,
+      "httpOnly":false,
+      "path":"/"
+    }
+  }
+
+
+}

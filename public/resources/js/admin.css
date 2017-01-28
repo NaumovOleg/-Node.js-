@@ -1,0 +1,237 @@
+@charset "UTF-8";
+@import 'https://fonts.googleapis.com/css?family=Raleway:400,700';
+@import 'https://fonts.googleapis.com/css?family=Montserrat:400,700';
+@import 'https://fonts.googleapis.com/css?family=Roboto:400,700';
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  list-style: none;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+    min-width: 320px;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #ccc !important;
+  text-decoration: none !important;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+.admin_main{
+    padding-top: 30px;
+}
+
+.admin_top{
+    padding: 10px;
+    line-height: 25px;
+    text-align: center;
+    background: white;
+    color: #ff7878;
+    height: 50px;
+    font-size: 25px;
+    border: 1px solid #ccc;
+}
+
+.admin_left{
+    display: block;
+    text-align: center;
+/*    max-width: 300px;*/
+    border-right: 1px solid #ccc;
+}
+
+@media only screen and (max-width: 991px){
+.admin_left{
+border-left: 1px solid #ccc;
+border-bottom: 1px solid #ccc;
+    }
+}
+
+.admin_left_menu{
+    padding-top: 10px;
+}
+
+.admin_options{
+    line-height: 30px;
+    height: 30px;
+    border-bottom: 1px dashed #ccc;
+}
+
+.admin_options:hover{
+    color: white;
+    background: #ff7878;
+    cursor: pointer;
+}
+
+.admin_right{
+    
+}
+
+.admin_right a:hover{
+ color: #ff7878 !important;
+}
+
+.color_admin{
+}
+
+.color_admin a:hover{
+    color: #ff7878;
+}
+
+/*MEMBERS*/
+
+.admin_right_menu_user{
+    font-size: 15px;
+    padding: 10px;
+        color: #ccc;
+}
+
+.admin_info_user{
+    padding: 5px;
+    margin-bottom: 5px;
+border: 1px solid #ccc;
+}
+
+.admin_info_user span span{
+    color: #777777;
+}
+
+.admin_edit_user{
+    display: inline-block;
+}
+
+/*MEMBERS END*/
+
+/*TESTIMONIALS*/
+.admin_right_menu_testimonials{
+padding: 10px;
+}
+
+.admin_info_testimonials{
+padding: 10px;
+padding: 10px;
+    margin-bottom: 5px;
+border: 1px solid #ccc;
+border-radius: 5px;
+}
+
+.testimonials_author{
+display: inline-block;
+    margin-bottom: 7px;
+    color: #ccc;
+    font-size: 12px;
+
+}
+
+.testimonials_date{
+display: inline-block;
+    color: #ff7878;
+    font-size: 10px;
+float: right;
+    clear: both;
+}
+
+.admin_edit_testimonials{
+    margin-top: 5px;
+}
+
+/*TESTIMONIALS END*/
+
+/*CHAT START*/
+.admin_chat_main{
+    margin-top: 10px;
+    text-align: center;
+}
+
+.admin_text_chat{
+   margin-bottom: 10px; 
+}
+
+.chat_button_main{
+    
+}
+
+.chat_button{
+background: #ff7878;
+    color: white;
+    border: none;
+}
+/*CHAT END*/
