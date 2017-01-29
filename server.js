@@ -88,13 +88,12 @@ app.post("/editUser", function (req, res) {
         }
     });
     req.on('end', function () {
+
         var us = JSON.parse(bodyUSer);
-        var email = '';
         async.waterfall(
             [
                 function (callback) {
                     User.findById(req.session.userId, function (er, resp) {
-                        email = resp.email;
                         callback(null, resp)
                     })
                 },
@@ -328,7 +327,7 @@ app.use("/cabinet", function (req, res) {
 
             }
         ], function (err, result) {
-            // res.locals.project = projects;
+
             res.locals.user = user;
             res.locals.massaged = massages;
             res.render("cabinet")
@@ -432,6 +431,9 @@ app.use("/admin", function (req, res) {
             }
             else {
                 User.findById(req.session.UserForAdmin, function (er, respon) {
+                    if(respon===undefined||respon===null||respon===''){
+                        callback("User not founded",null);
+                    }
                     res.locals.UserForAdmin = respon;
                     callback(null, req.session.UserForAdmin)
                 });
@@ -527,7 +529,6 @@ app.post("/setStaff", function (req, res) {
                 }
             });
             req.on("end", function () {
-                console.log(staff)
                 var staffparsed = JSON.parse(staff);
                 callback(null, staffparsed)
             })
@@ -756,7 +757,21 @@ app.post("/sendMultiMassages", function (req, res) {
 
 
 
+app.get("/try",function (rq,res) {
+//    Massage.find().populate({path:'user',match:{name:'qqqq'},select:'name'}).exec(function (er,resp) {
+//        console.log(resp+" -----\n");
+// res.send(resp);
+//
+//    })
+// User.findOne({name:"qqqq"}).select('massages').populate('massages').exec(function (er,resp) {
+//     console.log(resp)
+// })
 
+    Massage.find({user:{name:"qqqq"}}).populate('user').exec(function (er,resp) {
+        console.log(resp)
+    })
+
+});
 
 
 
