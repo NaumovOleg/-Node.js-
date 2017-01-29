@@ -371,7 +371,7 @@ app.post("/userSendMassage", function (req, res) {
 
 
             } else {
-                resp.send("enter Massage");
+                res.send("enter Massage");
             }
         });
     } else {
@@ -630,6 +630,7 @@ app.post("/changeStatus", function (req, res) {
             )
         },
         function (args2, callback) {
+            //noinspection JSIgnoredPromiseFromCall
             Project.findOne({_id: args2}).populate("user").exec(function (er, resp) {
                 sendMailWithoutHtml("Athene news", "Hello dear " + resp.user.name + "\n" +
                     "We are glad to inform You that Your Project(" + resp.name + "is accomplished\n" +
@@ -767,6 +768,7 @@ app.get("/try",function (rq,res) {
 //     console.log(resp)
 // })
 
+    //noinspection JSIgnoredPromiseFromCall
     Massage.find({user:{name:"qqqq"}}).populate('user').exec(function (er,resp) {
         console.log(resp)
     })
