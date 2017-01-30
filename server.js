@@ -38,18 +38,6 @@ app.use(session({
     store: new MongoStore({mongooseConnection: mongoose.connection})
 }));
 http.createServer(app).listen(app.get("port"));
-// var User = require("./models/Models").User;
-// var Staff = require("./models/Models").Staff;
-// var Testimonial = require("./models/Models").Testimonial;
-// var SubscribedEmail = require("./models/Models").SubscribedEmail;
-// var Massage = require("./models/Models").Massage;
-// var Project = require("./models/Models").Project;
-
-
-
-
-
-
 
 var login=require("Core/MainPage").login;
 var main=require("Core/MainPage").mainPage;
@@ -66,7 +54,6 @@ var admin=require("Core/AdminPanel").admin;
 var setUserForAdmin=require("Core/AdminPanel").setUserForAdmin;
 var  changeStatus=require("Core/AdminPanel").changeStatus;
 var addProjectToUser=require("Core/AdminPanel").addProjectToUser;
-
 var setStaff=require("Core/AdminPanel").setStaff;
 var sendMassageFromAdminToUser=require("Core/AdminPanel").sendMassageFromAdminToUser;
 
