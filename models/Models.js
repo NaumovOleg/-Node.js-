@@ -19,6 +19,7 @@ var userSchema = mongoose.Schema(
     }
 );
 
+
 userSchema.methods.encryptPasword=function (password) {
  return crypto.createHmac("sha1",this.salt).update(password).digest("hex");
 };

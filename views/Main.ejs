@@ -254,7 +254,6 @@
                                 <script>
 
                                     function loginMob(){
-                                        alert("ddddddddddddddddddddddd")
                                           var userCr = {
                                             email:  emailmob.value,
                                             password: passwordmob.value
@@ -812,7 +811,7 @@
 
             function checkFields() {
 
-                var re =/^[\w\.\d-_]+@[\w\.\d-_]+\.\w{2,4}$/i;;
+                var re =/^[\w\.\d-_]+@[\w\.\d-_]+\.\w{2,4}$/i;
                 if (re.test(document.getElementById("email").value)
                     & !isKyr(document.getElementById("email").value
                         & document.getElementById("email").value)
@@ -1437,7 +1436,6 @@ Any sites needs a support from time to time.For instance:you have site-presenata
             function addSubscribedEmail() {
 
                 var subscribedEmail = exampleInputEmail1.value;
-//                    alert(subscribedEmail);
                 var r =/^[\w\.\d-_]+@[\w\.\d-_]+\.\w{2,4}$/i;
                 if (!exampleInputEmail1.value) {
                     alert("!r")
@@ -1479,41 +1477,9 @@ alert(data)
                         error: function (jqXhr, textStatus, errorThrown) {
 alert("error")
                         }
-                    })
-
-
-//
-//                        fetch("ckeckMailAll", {
-//                            method: 'post',
-//                            body: exampleInputEmail1.value
-//                        })
-//                                .then(function (response) {
-//                                    return response.text();
-//                                })
-//                                .then(function (data) {
-//                                    if (data !== "empty") {
-//                                        subscribeError.innerHTML = "this email is already registered"
-//                                        subscribeError.style.padding = "1px 3px 2px 3px";
-//                                    }
-//                                    else {
-//
-//                                        var xhreq = new XMLHttpRequest()
-//                                        xhreq.open("POST", "addSubscribedEmail");
-//                                        xhreq.send(exampleInputEmail1.value);
-//                                        exampleInputEmail1.innerHTML = "";
-//                                        subscribeError.innerHTML = " Congratulations you have subscribed"
-//                                        subscribeError.style.padding = "1px 3px 2px 3px";
-//                                        exampleInputEmail1.style.visibility = "hidden";
-//                                        butttonSubscribe.style.visibility = "hidden";
-//                                        exampleInputEmail1.innerHTML = "";
-//
-//                                    }
-//                                })
-//                                .catch(error);
+                    });
                 }
 
-
-//                    alert(subscribedEmail);
             }
         </script>
 
@@ -1847,6 +1813,7 @@ alert("error")
         </script>
         <% } %>
         <% if(user !== null | user !== undefined){ %>
+
         <script>
 
             function contactUs() {
