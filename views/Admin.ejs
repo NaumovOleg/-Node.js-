@@ -421,8 +421,7 @@
                             document.location.reload()
                         },
                         error: function (a, s, d) {
-                            alert(a)
-                            alert(s)
+
                         }
                     })
                 }
@@ -451,7 +450,7 @@
                         PHP: php.value,
                         DESIGN: des.value
                     };
-                    alert(JSON.stringify(staffee))
+
                     $.ajax({
                         type: "post",
                         url: '/setStaff',
@@ -460,7 +459,7 @@
                         contentType: "text",
                         data: JSON.stringify(staffee),
                         success: function (data, textStatus, jQxhr) {
-                            alert(data)
+
                         },
                         error: function (jqXhr, textStatus, errorThrown) {
 
@@ -523,8 +522,7 @@
                                     document.location.reload()
                                 },
                                 error:function (e,r,t) {
-                                    alert(e)
-                                    alert(r)
+
                                 }
                             })
                         }
@@ -557,7 +555,7 @@
                     <script>
 
                         function changeStatus(el){
-                            alert( el.parentElement.querySelector('#pjojectIdSide').innerHTML);
+
                             $.ajax({
                                 url:"/changeStatus",
                                 type:"post",
@@ -566,12 +564,11 @@
 
                                 data:el.parentElement.querySelector('#pjojectIdSide').innerHTML,
                                 success:function (data,e,r) {
-                                    alert(data)
+
                                     document.location.reload()
                                 },
                                 error:function(e,r,t){
-                                    alert(e)
-                                    alert(r)
+
                                 }
 
                             })
@@ -582,7 +579,7 @@
                                 projectName:projectNmaeo.value,
                                 projectInfo:projectInfoo.value
                             }
-                            alert(JSON.stringify(USERe))
+
                             $.ajax({
                                 url:"/addProjectToUser",
                                 type:"post",
@@ -593,8 +590,7 @@
                                     document.location.reload()
                                 },
                                 error:function (e,r,t) {
-                                    alert(e)   ;
-                                    alert(r)
+
                                 }
                             })
                         }
@@ -640,12 +636,12 @@
             type:"post",
             data:qwe.value,
             success:function (data,e,r) {
-                alert("good")
+
                 var block = document.getElementById("admin_chat_box");
                 block.scrollTop = block.scrollHeight;
             }
             ,error:function (e,r,t) {
-                alert(e)
+
             }
         })
 
@@ -672,7 +668,7 @@
     //            contentType: "text/plain; charset=utf-8",
     //            data:mass,
     //            success: function (data, textStatus, jQxhr) {
-    //                alert(data)
+    //
     //            },
     //            error: function (jqXhr, textStatus, errorThrown) {
     //            }

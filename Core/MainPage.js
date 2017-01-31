@@ -1,10 +1,8 @@
 var path = require('path');
-
+var bodyParser = require('body-parser');
 var favicon = require('serve-favicon');
-var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var async = require('async');
-var bodyParser = require('body-parser');
 
 var sendMailWithoutHtml = require('MAilSender/Mailer').sendMAilWithoutHtml;
 
@@ -26,7 +24,7 @@ function login(req,res) {
 var body = '';
 req.on('readable', function () {
     var c = req.read();
-    if (c != null) {
+    if (c !== null) {
         body += c
     }
 
@@ -229,18 +227,52 @@ function addSubscribedAmail(req,res) {
     })
 }
 function refreshMassages(req,res) {
-    try{Testimonial.find(
+    try{//noinspection JSIgnoredPromiseFromCall
+        Testimonial.find(
     ).populate("user").exec(function (er, resp) {
         res.send(resp);
     })}catch (e){
         res.render("error")
     }
 }
-exports.refreshMassages=refreshMassages
+
+function contactUs(req,res) {
+
+    var body = '';
+    req.on('readable', function () {
+        var c = req.read();
+        if (c !== null&&c!==undefined) {
+            body += c
+        }
+
+    });
+
+  req.on('end',function () {
+
+
+
+      bodyj=JSON.parse(body);
+
+     if(req.session.userId!==null&&req.session.userId!==undefined) {
+         User.findById(req.session.userId,function (er,resp) {
+             bodyj.name=resp.name;
+             bodyj.email=resp.email;
+             sendMailWithoutHtml(bodyj.email+"  "+bodyj.name,bodyj.text,"athene.lviv@gmail.com");
+             res.send(resp)
+         })
+
+     }else{
+         console.log("---else----------------");
+         sendMailWithoutHtml(bodyj.email,bodyj.text,"athene.lviv@gmail.com");
+         res.send(bodyj);
+     }
+  })
+}
+exports.refreshMassages=refreshMassages;
 exports.addSubscribedMAil=addSubscribedAmail;
 exports.registerUaser=registerUserToBase;
 exports.addTestim=addTestim;
 exports.login=login;
 exports.checkMail=checkMail;
-
+exports.contactUs=contactUs;
 exports.mainPage=main;

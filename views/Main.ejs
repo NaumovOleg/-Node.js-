@@ -85,21 +85,21 @@
                                                 class="fa fa-facebook contacts_icon"
                                                 aria-hidden="true"></i></div>
 
-
-
                                     <% if(user !== null & user !== undefined){ %>
                                     <a href="/cabinet">
-                                    <div class="col-md-2 last_contacts_logo_block" onclick="document.location='/cabinet'">
-                                        <i class="fa fa-user contacts_icon" aria-hidden="true"></i>
-                                    </div></a>
-                                    <%}%>
+                                        <div class="col-md-2 last_contacts_logo_block"
+                                             onclick="document.location='/cabinet'">
+                                            <i class="fa fa-user contacts_icon" aria-hidden="true"></i>
+                                        </div>
+                                    </a>
+                                    <% } %>
 
                                     <div class="col-md-2"></div>
 
 
                                     <style>
                                         .log_out_button {
-                                           /* position: absolute; */
+                                            /* position: absolute; */
                                             background: none;
                                             border: none;
                                             margin: 0;
@@ -136,7 +136,7 @@
                                 </div>
 
                             </div>
-<%}%>
+                            <% } %>
 
                             <div class="col-xs-12 mobile_block_top">
                                 <% if (user !== undefined & user !== null){ %>
@@ -154,13 +154,14 @@
                                     }
                                 </style>
                                 <% if (user !== undefined & user !== null){ %>
-                                <%if(counMassages!=="0"){%>
-                                <div class="user_new_msg_block_mob" >
-                                    <a href="/cabinet">Yuou have <%=counMassages%> massages
+                                <% if(counMassages !== "0"){ %>
+                                <div class="user_new_msg_block_mob">
+                                    <a href="/cabinet">Yuou have <%= counMassages %> massages
                                         <span class="new_msgs_user_mob"></span>
                                         <!--new massages-->
                                     </a>
-                                </div><%}%>
+                                </div>
+                                <% } %>
                                 <% } %>
 
                                 <% if (user !== undefined & user !== null){ %>
@@ -188,7 +189,7 @@
                                                         document.location = "/"
                                                     },
                                                     error: function (e, r, y) {
-                                                        alert("sssssssssssssssssssssssssssssssss")
+
                                                     }
                                                 }
                                             )
@@ -219,7 +220,7 @@
 
                         <div class="col-md-6">
                             <!--LOGIN FORM-->
-                            <%if(user===null||user===undefined){%>
+                            <% if(user === null || user === undefined){ %>
                             <div class="login_logo_form hidden-sm hidden-xs">
 
                                 <div class="button_reg_logo1">
@@ -235,7 +236,7 @@
 
 
                                 <!--<form class="logo_form" action="/loginprocessing" method="POST">-->
-                                <% if (user === null ||user === undefined){ %>
+                                <% if (user === null || user === undefined){ %>
                                 <div class="login_logo">
                                     <input id="emaila" type="email" class="login" name="username"
                                            placeholder="Login">
@@ -253,12 +254,12 @@
                                 <% } %>
                                 <script>
 
-                                    function loginMob(){
-                                          var userCr = {
-                                            email:  emailmob.value,
+                                    function loginMob() {
+                                        var userCr = {
+                                            email: emailmob.value,
                                             password: passwordmob.value
                                         }
-                                        alert(userCr.email)
+
 
                                         $.ajax({
                                             url: '/login',
@@ -280,12 +281,10 @@
 
                                             },
                                             error: function (jqXhr, textStatus, errorThrown) {
-                                                alert(jqXhr + "uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu")
+
                                             }
                                         })
                                     }
-
-
 
 
                                     function login() {
@@ -314,7 +313,7 @@
 
                                             },
                                             error: function (jqXhr, textStatus, errorThrown) {
-                                                alert(jqXhr + "uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu")
+
                                             }
                                         })
                                     }
@@ -322,9 +321,8 @@
                                 <!--</form>-->
 
 
-                            </div><%}%>
-
-
+                            </div>
+                            <% } %>
 
                             <!--LOGIN FORM END-->
 
@@ -421,41 +419,40 @@
                                 <a style="color: white;">
                                     <!--Тестовий блок для повідомлень з сервера-->
                                     <% if(user !== null && user !== undefined){ %>
-                                    <div class="user_msg_info"  id="infoBlock">
-
-                                            <!--<span>-->
-                                            <!--<p>You have </p>-->
-                                                <!--<p class="user_msg_info_detailes" id="errorse">-->
-
-
-
-                                                    <!--&lt;!&ndash;new massages&ndash;&gt;-->
-                                                <!--</p>-->
-                                             <!--</span>-->
-                                        <% if(counMassages!=="0"){ %>
-                                        <span>
-                                            <p><%=user.name%> </p>
-                                                <p class="user_msg_info_detailes" id="errorse">
-                                                You have    <%=counMassages %> <br>
-                                                    massage(s)
-                                                </p>
-                                             </span>
-                                        <%}%>
-
-                                        <% if(counMassages==="0"){ %>
-                                        <span>
-                                            <p>Hello </p>
-                                                <p class="user_msg_info_detailes"><%= user.name %></p>
-                                             </span> <%}%>
-
-                                    </div>
-                                    <%}else{%>
-                                    <div class="user_msg_info"  id="infoBlock">
+                                    <div class="user_msg_info" id="infoBlock">
 
                                         <!--<span>-->
                                         <!--<p>You have </p>-->
                                         <!--<p class="user_msg_info_detailes" id="errorse">-->
 
+
+                                        <!--&lt;!&ndash;new massages&ndash;&gt;-->
+                                        <!--</p>-->
+                                        <!--</span>-->
+                                        <% if(counMassages !== "0"){ %>
+                                        <span>
+                                            <p><%= user.name %> </p>
+                                                <p class="user_msg_info_detailes" id="errorse">
+                                                You have <%= counMassages %> <br>
+                                                    massage(s)
+                                                </p>
+                                             </span>
+                                        <% } %>
+
+                                        <% if(counMassages === "0"){ %>
+                                        <span>
+                                            <p>Hello </p>
+                                                <p class="user_msg_info_detailes"><%= user.name %></p>
+                                             </span>
+                                        <% } %>
+
+                                    </div>
+                                    <% }else{ %>
+                                    <div class="user_msg_info" id="infoBlock">
+
+                                        <!--<span>-->
+                                        <!--<p>You have </p>-->
+                                        <!--<p class="user_msg_info_detailes" id="errorse">-->
 
 
                                         <!--&lt;!&ndash;new massages&ndash;&gt;-->
@@ -468,11 +465,8 @@
                                              </span>
 
 
-
-
-
                                     </div>
-                                    <%}%>
+                                    <% } %>
                                 </a>
 
 
@@ -584,18 +578,19 @@
 
             <div class="logo_form pop_form_mob">
 
-                <input class="login_mob"  type="email" id="emailmob" name="username" placeholder="Login">
+                <input class="login_mob" type="email" id="emailmob" name="username" placeholder="Login">
 
                 <input class="password_mob" name="password" id="passwordmob" type="password"
                        placeholder="Password">
                 <input class="button_login_logo_mob" type="submit" value="LOG IN" onclick="loginMob()">
                 <br>
-                <%if(user===null||user===undefined){%>
+                <% if(user === null || user === undefined){ %>
                 <a href="#" id="go">
                         <span id="modal_close_login3">
                         Not Registered yet?
                         </span>
-                </a><%}%>
+                </a>
+                <% } %>
             </div>
 
         </div>
@@ -729,7 +724,7 @@
                                 contentType: "text/plain; charset=utf-8",
                                 data: document.getElementById("email").value,
                                 success: function (data, textStatus, jQxhr) {
-                                    alert(data)
+
                                     if (data !== "empty") {
                                         emailfield = null;
                                         email.style.borderColor = "red";
@@ -811,7 +806,7 @@
 
             function checkFields() {
 
-                var re =/^[\w\.\d-_]+@[\w\.\d-_]+\.\w{2,4}$/i;
+                var re = /^[\w\.\d-_]+@[\w\.\d-_]+\.\w{2,4}$/i;
                 if (re.test(document.getElementById("email").value)
                     & !isKyr(document.getElementById("email").value
                         & document.getElementById("email").value)
@@ -838,7 +833,7 @@
                     errormail.innerHTML = 'please  email latin symbols';
                     eme = false;
                 }
-                var r =/^[\w\.\d-_]+@[\w\.\d-_]+\.\w{2,4}$/i;
+                var r = /^[\w\.\d-_]+@[\w\.\d-_]+\.\w{2,4}$/i;
 
                 if (!r.test(document.getElementById("email").value)) {
 
@@ -849,7 +844,7 @@
                 }
                 if (r.test(document.getElementById("email").value)) {
 //                    var mala = document.getElementById("email").value;
-//                    alert(mala)
+//
 
                     $.ajax({
                         url: "/ckeckMail",
@@ -859,7 +854,7 @@
                         data: document.getElementById("email").value,
                         contentType: "text/html; charset=utf-8",
                         success: function (data, textStatus, jQxhr) {
-                            alert(data)
+
 
                             if (data !== 'empty') {
                                 emailfield = null;
@@ -950,9 +945,7 @@
                                     regform.appendChild(pan);
                                 },
                                 error: function (dd) {
-                                    alert(
-                                        "errrrrrrrrrrrrrrr"
-                                    )
+
                                 }
                             })
 
@@ -999,6 +992,9 @@
         own company and you need web site which represents it? Or you have it  but
         it demands maintenance?. We can offer you a wide range of IT services. Design especially
         for you , or , if you want , design based on your own ideas, and ,of cource , developing... <br>
+        When implementing back-ends for our projects,we use PHP
+        Java , and work with  MySQL and MongoDB databases.
+To create front-ends we use, Javascript (Angular.js), Bootstrap and HTML5 ,Css,Jquery.
         Why we? -
         Good quality , conviction in accomplishing on time and low prices. We try to make developing
         process more simplified for you.
@@ -1041,12 +1037,12 @@ function getStaff() {
     </span>
             </div>
         </div>
-        <%if(staff!==null&&staff!==undefined&&staff!==''){%>
+        <% if(staff !== null && staff !== undefined && staff !== ''){ %>
         <div class="row under_logo_main">
             <div class="col-md-3">
                 <div class="under_logo_block3">
                     <div class="romb under_logo_block3_inside second_block_romb1">
-                        <span class="inside_romb" id="staffDesigners"><%=staff.DESIGN%></span>
+                        <span class="inside_romb" id="staffDesigners"><%= staff.DESIGN %></span>
                         <span class="inside_romb_description">Designers staff </span>
                     </div>
                 </div>
@@ -1054,7 +1050,7 @@ function getStaff() {
             <div class="col-md-3">
                 <div class="under_logo_block3">
                     <div class="romb under_logo_block3_inside second_block_romb2">
-                        <span class="inside_romb" id="staffJava"><%=staff.JAVA%></span>
+                        <span class="inside_romb" id="staffJava"><%= staff.JAVA %></span>
                         <span class="inside_romb_description">Java staff</span>
                     </div>
                 </div>
@@ -1062,7 +1058,7 @@ function getStaff() {
             <div class="col-md-3">
                 <div class="under_logo_block3">
                     <div class="romb under_logo_block3_inside second_block_romb3">
-                        <span class="inside_romb" id="staffJS"><%=staff.JS%></span>
+                        <span class="inside_romb" id="staffJS"><%= staff.JS %></span>
                         <span class="inside_romb_description">JavaScript staff</span>
                     </div>
                 </div>
@@ -1070,12 +1066,13 @@ function getStaff() {
             <div class="col-md-3">
                 <div class="under_logo_block3">
                     <div class="romb under_logo_block3_inside second_block_romb4">
-                        <span class="inside_romb" id="staffPhp"><%=staff.PHP%></span>
+                        <span class="inside_romb" id="staffPhp"><%= staff.PHP %></span>
                         <span class="inside_romb_description">PHP staff</span>
                     </div>
                 </div>
             </div>
-        </div><%}%>
+        </div>
+        <% } %>
     </div>
 </div>
 
@@ -1168,11 +1165,11 @@ Here are some feedbacks left by  our clients.Notice!-you must be registered to l
                         <div class="col-md-5"></div>
                         <div class="col-md-2 third_button_main">
                             <button type="submit" name="subm" value="add Feedback" onclick="addMas()"
-                            class="btn btn-default third_button">Submit
+                                    class="btn btn-default third_button">Submit
                             </button>
 
                             <!--<button type="submit" name="subm" value="add Feedback" onclick="testimoni()"-->
-                                    <!--class="btn btn-default third_button">Submit-->
+                            <!--class="btn btn-default third_button">Submit-->
                             <!--</button>-->
 
                         </div>
@@ -1212,10 +1209,10 @@ Here are some feedbacks left by  our clients.Notice!-you must be registered to l
                     contentType: "text",
                     data: testim.value,
                     success: function (response, textStatus, jQxhr) {
-                      document.location.reload()
+                        document.location.reload()
                     },
                     error: function () {
-                        alert("bad")
+
                     }
                 })
 
@@ -1241,7 +1238,7 @@ Here are some feedbacks left by  our clients.Notice!-you must be registered to l
                     type: 'get',
                     url: '/refreshMassages',
                     dataType: "json",
-                    async:false,
+                    async: false,
                     contentType: "application/json; charset=utf-8",
 
                     success: function (response, textStatus, jQxhr) {
@@ -1254,7 +1251,7 @@ Here are some feedbacks left by  our clients.Notice!-you must be registered to l
 
                             mes.className = 'item';
                             mes.style.cssText = "text-align:center";
-                            mes.innerHTML="";
+                            mes.innerHTML = "";
 
 
                             mes.innerHTML = "<a style='font-size: 12px;text-align: center;float:left;color: #4cae4c;margin-top: 3px;clear: both'>" + response[q].date + "</a><br>" +
@@ -1266,12 +1263,11 @@ Here are some feedbacks left by  our clients.Notice!-you must be registered to l
                         }
                     },
                     error: function (jqXhr, textStatus, errorThrown) {
-                        alert(jqXhr);
-                        alert(textStatus)
+
                     }
                 })
             }
-testimoni()
+            testimoni()
         </script>
 
     </div>
@@ -1436,9 +1432,9 @@ Any sites needs a support from time to time.For instance:you have site-presenata
             function addSubscribedEmail() {
 
                 var subscribedEmail = exampleInputEmail1.value;
-                var r =/^[\w\.\d-_]+@[\w\.\d-_]+\.\w{2,4}$/i;
+                var r = /^[\w\.\d-_]+@[\w\.\d-_]+\.\w{2,4}$/i;
                 if (!exampleInputEmail1.value) {
-                    alert("!r")
+
                     subscribeError.innerHTML = "please enter email"
                     subscribeError.style.padding = "1px 3px 2px 3px";
                 }
@@ -1455,7 +1451,7 @@ Any sites needs a support from time to time.For instance:you have site-presenata
                         contentType: "text",
                         data: exampleInputEmail1.value,
                         success: function (data, textStatus, jQxhr) {
-alert(data)
+
                             if (data !== "You have subscribed") {
                                 subscribeError.innerHTML = data
                                 subscribeError.style.padding = "1px 3px 2px 3px";
@@ -1475,7 +1471,7 @@ alert(data)
                             }
                         },
                         error: function (jqXhr, textStatus, errorThrown) {
-alert("error")
+
                         }
                     });
                 }
@@ -1731,45 +1727,100 @@ alert("error")
                 <% if(user === null | user === undefined){ %>
                 <div class="col-md-5 eleven_form">
                     <div class="form-group eleven_form_inside">
-                        <input type="Name" id="inputLogin3" class="form-control" placeholder="Name">
+                        <input type="tex" id="inputLogin3" class="form-control" placeholder="Name">
                     </div>
                     <div class="form-group eleven_form_inside">
-                        <input type="Email" id="inputEmail3" class="form-control" placeholder="Email">
+                        <input type="email" id="inputEmail3" class="form-control" placeholder="Email">
                         <span id="correm"></span>
                     </div>
 
                 </div>
                 <div class="col-md-5 eleven_form eleven_form_inside">
-                    <textarea id="textareaClass" class="form-control" rows="5" button_border></textarea>
+                    <textarea type="text" id="textareaClass" class="form-control" rows="5" button_border></textarea>
                 </div>
                 <div id="corrtext"></div>
-                <% } %>
-
-                <% if(user !== null & user !== undefined){ %>
-                <div class="col-md-10 eleven_form eleven_form_inside">
-                    <textarea id="textareaClass" class="form-control" rows="5" button_border></textarea>
-                </div>
-                <% } %>
-
                 <div class="col-md-1"></div>
                 <div class="form-group">
-                    <div class="col-md-12 eleven_button_main">
-                        <button type="submit" class="btn btn-default eleven_button" onclick="contactUs()">Submit
+                    <div class="col-md-12 eleven_button_main" onclick="contactUs()">
+                        <button type="submit" class="btn btn-default eleven_button" >Submit
                         </button>
                     </div>
                 </div>
+                <% }else{ %>
+                <div class="col-md-10 eleven_form eleven_form_inside">
+                    <textarea type="text" id="textareaClass" class="form-control" rows="5" button_border></textarea>
+                </div>
+                <div id="corrtext"></div>
+                <div class="col-md-1"></div>
+                <div class="form-group">
+                    <div class="col-md-12 eleven_button_main" onclick="contactUsLogged()">
+                        <button type="submit" class="btn btn-default eleven_button" >Submit
+                        </button>
+                    </div>
+                </div>
+                <% } %>
+
             </div>
 
         </div>
-        <% if(user === null | user === undefined){ %>
+
         <script>
+
+            function contactUsLogged() {
+
+
+
+                if (!textareaClass.value) {
+                    corrtext.innerHTML = "please enter massage"
+                }
+
+                else {
+
+//
+
+                    var contact = {
+                        text: textareaClass.value
+                    }
+
+                    $.ajax({
+                        url: "/contactUS",
+                        dataType: 'json',
+                        type: 'post',
+                        contentType: "application/json:charset=utf-8",
+                        data: JSON.stringify(contact),
+                        success: function (data, textStatus, jQxhr) {
+
+                            inputLogin3.value = "";
+                            inputEmail3.value = "";
+                            textareaClass.value = "";
+                        },
+                        error: function (jqXhr, textStatus, errorThrown) {
+/
+                        }
+                    });
+
+                    inputLogin3.value = "";
+                    inputEmail3.value = "";
+                    textareaClass.value = "";
+
+                }
+            }
+
+
             function contactUs() {
 
 //                    var form = document.forms.contacts;
-                var namees = inputLogin3.value;
-                var maileed = inputEmail3.value;
+                var namees = '';
+                var maileed = '';
+
+                if (inputLogin3.value) {
+                    namees = inputLogin3.value;
+                }
+                if (inputEmail3.value) {
+                    var maileed = inputEmail3.value;
+                }
                 var texteed = textareaClass.value;
-                var r = /^\w+@\w+\.\w{2,4}$/i;
+                var r =/^[\w\.\d-_]+@[\w\.\d-_]+\.\w{2,4}$/i;
                 if (!inputEmail3.value) {
                     correm.innerHTML = "please enter email"
                 }
@@ -1778,7 +1829,7 @@ alert("error")
                 }
                 else {
 
-//                            alert(texteed.value);
+//
 
                     var contact = {
 
@@ -1786,20 +1837,21 @@ alert("error")
                         email: maileed,
                         text: texteed
                     }
-//                            alert(JSON.stringify(contact));
+
                     $.ajax({
-                        url: '/contactUS',
-                        dataType: 'text',
+                        url: "/contactUS",
+                        dataType: 'json',
                         type: 'post',
-                        contentType: "application/json; charset=utf-8",
+                        contentType: "application/json:charset=utf-8",
                         data: JSON.stringify(contact),
                         success: function (data, textStatus, jQxhr) {
+
                             inputLogin3.value = "";
                             inputEmail3.value = "";
                             textareaClass.value = "";
                         },
                         error: function (jqXhr, textStatus, errorThrown) {
-//                                    alert(jqXhr + "   " + textStatus + "   " + errorThrown)
+//
                         }
                     });
 
@@ -1811,55 +1863,7 @@ alert("error")
             }
 
         </script>
-        <% } %>
-        <% if(user !== null | user !== undefined){ %>
 
-        <script>
-
-            function contactUs() {
-
-//                    var form = document.forms.contacts;
-                if (!textareaClass.value) {
-                    corrtext.innerHTML = "please enter your message"
-                }
-                else {
-                    var texteed = textareaClass.value;
-
-
-                    var contact = {
-
-                        name: '',
-                        email: '',
-                        text: texteed
-                    }
-//                            alert(JSON.stringify(contact));
-                    $.ajax({
-                        url: '/contactUS',
-                        dataType: 'text',
-                        type: 'post',
-                        contentType: "application/json; charset=utf-8",
-                        data: JSON.stringify(contact),
-                        success: function (data, textStatus, jQxhr) {
-//                                    inputLogin3.value = "";
-//                                    inputEmail3.value = "";
-                            textareaClass.value = "";
-                        },
-                        error: function (jqXhr, textStatus, errorThrown) {
-//                                    alert(jqXhr + "   " + textStatus + "   " + errorThrown)
-                        }
-                    });
-
-//                            inputLogin3.value = "";
-//                            inputEmail3.value = "";
-                    textareaClass.value = "";
-
-
-                }
-            }
-
-        </script>
-
-        <% } %>
 
     </div>
 </div>

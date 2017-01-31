@@ -6,8 +6,7 @@ var cookieParser = require('cookie-parser');
 var async = require('async');
 var bodyParser = require('body-parser');
 var mongoose = require("./libs/mongoose");
-// var sendMailWithoutHtml = require('./MAilSender/Mailer').sendMAilWithoutHtml;
-// var sendHtmlmail = require('./MAilSender/Mailer').sendHtmlMail;
+
 var domain = require("domain");
 var safe = domain.create();
 var http = require("http");
@@ -55,6 +54,7 @@ var changeStatus = require("Core/AdminPanel").changeStatus;
 var addProjectToUser = require("Core/AdminPanel").addProjectToUser;
 var setStaff = require("Core/AdminPanel").setStaff;
 var sendMassageFromAdminToUser = require("Core/AdminPanel").sendMassageFromAdminToUser;
+var contactUs=require('Core/MainPage').contactUs;
 app.post("/login", function (req, res) {
     login(req, res)
 });
@@ -118,6 +118,13 @@ app.post("/changeStatus", function (req, res) {
 });
 app.post("/sendMultiMassages", function (req, res) {
     sendMultiMassage(req, res);
+});
+
+
+app.post('/contactUS',function (req,res) {
+
+    contactUs(req,res);
+
 });
 app.get("/try", function (rq, res) {
 //    Massage.find().populate({path:'user',match:{name:'qqqq'},select:'name'}).exec(function (er,resp) {
